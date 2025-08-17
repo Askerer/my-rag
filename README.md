@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI RAG Platform
 
-## Getting Started
+一個基於 Next.js 的智能文檔檢索與問答系統 (RAG - Retrieval-Augmented Generation)。
 
-First, run the development server:
+## 功能特色
 
+### 📁 文件上傳
+- 支持多種文件格式：PDF, DOCX, TXT, MD
+- 拖拽上傳界面
+- 文件大小顯示
+- 批量文件處理
+
+### ⚙️ RAG 配置
+- **文本分塊大小**：可調整文檔分塊的字符數 (建議 500-2000)
+- **分塊重疊**：設置相鄰分塊之間的重疊字符數 (建議 10-20%)
+- **嵌入模型**：選擇不同的文本嵌入模型
+  - OpenAI Ada-002
+  - OpenAI 3-Small
+  - OpenAI 3-Large
+  - Sentence Transformers
+- **向量數據庫**：選擇向量存儲方案
+  - FAISS
+  - Pinecone
+  - Weaviate
+  - Chroma
+- **相似度閾值**：設置檢索結果的相似度閾值 (0.0-1.0)
+
+### 💬 智能問答
+- 實時聊天界面
+- 基於上傳文檔的智能回答
+- 消息歷史記錄
+- 加載狀態指示
+
+## 技術棧
+
+- **前端框架**：Next.js 15.4.5
+- **UI 組件**：React 19.1.0
+- **樣式**：Tailwind CSS 4
+- **圖標**：Lucide React
+- **語言**：TypeScript
+
+## 快速開始
+
+### 安裝依賴
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 啟動開發服務器
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 訪問應用
+打開瀏覽器訪問 [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 項目結構
 
-## Learn More
+```
+src/
+├── app/
+│   ├── page.tsx          # 主頁面
+│   ├── layout.tsx        # 應用布局
+│   └── globals.css       # 全局樣式
+└── components/
+    ├── FileUpload.tsx    # 文件上傳組件
+    ├── RAGConfig.tsx     # RAG 配置組件
+    └── ChatInterface.tsx # 聊天界面組件
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 開發計劃
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 已完成 ✅
+- [x] 文件上傳界面
+- [x] RAG 配置選項
+- [x] 聊天界面
+- [x] 響應式設計
+- [x] 組件化架構
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 待開發 🚧
+- [ ] 後端 API 集成
+- [ ] 文件處理邏輯
+- [ ] 向量數據庫連接
+- [ ] 真實的 RAG 實現
+- [ ] 用戶認證
+- [ ] 文件管理
+- [ ] 對話歷史保存
 
-## Deploy on Vercel
+## 使用說明
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **上傳文件**：點擊或拖拽文件到上傳區域
+2. **配置 RAG**：調整分塊大小、嵌入模型等參數
+3. **開始對話**：在聊天界面輸入問題，AI 會基於上傳的文檔回答
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 貢獻
+
+歡迎提交 Issue 和 Pull Request！
+
+## 許可證
+
+MIT License
